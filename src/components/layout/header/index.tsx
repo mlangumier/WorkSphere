@@ -8,7 +8,7 @@ import HeaderNavLink from './header-nav-link';
 export default function Header() {
   return (
     <header className="w-full bg-background-reversed py-4 text-foreground-reversed">
-      <div className="container mx-auto flex flex-row items-center justify-between max-xl:px-4">
+      <div className="container__block flex flex-row items-center justify-between">
         <div id="identity">
           <Link href="/" title={`Vers la page d'accueil`}>
             WorkSphere

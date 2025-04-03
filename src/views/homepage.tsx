@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import { imgHeroBanner } from '@/assets';
+import { imgComputerGrass, imgHeroBanner, imgOfficeCollaboration, imgOfficeLearning, imgOfficeReunion } from '@/assets';
+import { cn } from '@/libs/tailwind';
 
 export default function Homepage() {
   const content = {
@@ -10,10 +11,26 @@ export default function Homepage() {
     assurances: {
       title: `Pourquoi choisir WorkSphere ?`,
       cards: [
-        { title: `Productivité maximale`, description: `Un espace de travail optimisé sans distractions.` },
-        { title: `Collaboration facile`, description: `Des outils intuitifs pour travailler en équipe.` },
-        { title: `Sécurité garantie`, description: `Données protégées avec un chiffrement avancé.` },
-        { title: `Accessible partout`, description: `Compatible avec tous vos appareils, sans limites.` },
+        {
+          title: `Productivité maximale`,
+          description: `Un espace de travail optimisé sans distractions.`,
+          image: imgOfficeLearning,
+        },
+        {
+          title: `Collaboration facile`,
+          description: `Des outils intuitifs pour travailler en équipe.`,
+          image: imgOfficeCollaboration,
+        },
+        {
+          title: `Sécurité garantie`,
+          description: `Données protégées avec un chiffrement avancé.`,
+          image: imgOfficeReunion,
+        },
+        {
+          title: `Accessible partout`,
+          description: `Compatible avec tous vos appareils, sans limites.`,
+          image: imgComputerGrass,
+        },
       ],
     },
     tools: {
@@ -46,19 +63,35 @@ export default function Homepage() {
 
   return (
     <>
-      <section id="hero-section" className="relative">
-        <h1>{content.hero.title}</h1>
-        <Image src={imgHeroBanner} alt="Personne qui travaille sur son ordinateur" fill className="absolute -z-10" />
+      <section
+        id="hero-section"
+        className="relative container__block my-4 flex max-h-[32rem] first__section items-center justify-center overflow-clip rounded-lg gradient__section"
+      >
+        <Image
+          src={imgHeroBanner}
+          alt="Personne qui travaille sur son ordinateur"
+          fill
+          className="absolute -z-10 object-cover"
+        />
+
+        <h1 className="max-w-sm text-center title__main">{content.hero.title}</h1>
       </section>
 
-      <section id="assurances-section" className="">
-        <h2>{content.assurances.title}</h2>
-        <div id="cards">
+      <section id="assurances-section" className="container__block space-y-8 py-10 md:py-20">
+        <h2 className="title__section">{content.assurances.title}</h2>
+
+        <div id="cards-grid" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {content.assurances.cards.map((card, index) => (
-            <article key={`assurance-${index}`}>
-              {/* Img absolute */}
-              <div id="content">
-                <h3>{card.title}</h3>
+            <article
+              key={`assurance-${index}`}
+              className={cn(
+                'relative h-[24rem] overflow-clip rounded-lg p-5 text-foreground-reversed lg:h-[30rem]',
+                'bg-gradient-to-b from-background-reversed/80 from-5% via-background-reversed/70 via-20% to-background-reversed/0 to-40%'
+              )}
+            >
+              <Image src={card.image} alt="" fill className="absolute -z-10 object-cover" />
+              <div id="content" className="space-y-4">
+                <h3 className="title__card">{card.title}</h3>
                 <p>{card.description}</p>
               </div>
             </article>
@@ -66,23 +99,30 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section id="tools-section" className="bg-background-muted">
-        <div id="cards">
-          <article>
-            <h2>{content.tools.title}</h2>
+      <section id="tools-section" className="w-full bg-background-muted py-10 md:py-20">
+        <div id="cards-grid" className="container__block grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+          <article className="space-y-8 py-5">
+            <h2 className="title__section">{content.tools.title}</h2>
             <p>{content.tools.description}</p>
-
-            {content.tools.cards.map((card, index) => (
-              <article key={`tools-${index}`}>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </article>
-            ))}
           </article>
+          {content.tools.cards.map((card, index) => (
+            <article
+              key={`tools-${index}`}
+              className="group space-y-4 rounded-lg bg-background p-5 transition-colors duration-300 ease-out hover:bg-primary active:bg-primary"
+            >
+              <p className="font-sans text-5xl font-extrabold text-primary transition-colors duration-300 ease-out group-hover:text-foreground-reversed group-active:text-foreground-reversed">{`${index + 1 >= 10 ? '' : '0'}${index + 1}`}</p>
+              <div id="content" className="space-y-2">
+                <h3 className="title__card transition-colors duration-300 ease-out group-hover:text-foreground-reversed group-active:text-foreground-reversed">
+                  {card.title}
+                </h3>
+                <p className="transition-colors duration-300 ease-out group-hover:text-foreground-reversed group-active:text-foreground-reversed">
+                  {card.description}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
-
-      {/* <Link href="" title="" aria-label="" /> */}
     </>
   );
 }

@@ -50,10 +50,10 @@ body {
 /** --- TYPOGRAPHY --- */
 
 @utility title__main {
-  @apply font-sans text-3xl font-bold uppercase;
+  @apply font-sans text-3xl font-bold text-white uppercase md:text-4xl;
 }
 @utility title__section {
-  @apply font-sans text-3xl font-bold;
+  @apply font-sans text-3xl font-bold text-foreground-titles;
 }
 @utility title__card {
   @apply font-sans text-xl font-bold;
@@ -64,6 +64,10 @@ body {
 
 /** --- CUSTOM CLASSES --- */
 
+@utility container__block {
+  @apply container mx-auto max-w-7xl max-xl:px-4;
+}
+
 @utility first__section {
   @apply min-h-[calc(100vh-6rem)];
 }
@@ -71,3 +75,10 @@ body {
 @utility cta {
   @apply rounded-sm border-2 border-white bg-white px-4 py-2 text-primary transition-all duration-150 ease-in-out hover:bg-primary hover:text-white active:bg-accent active:text-white;
 }
+
+@utility gradient__section {
+  @apply bg-gradient-to-b from-background-reversed/0 to-background-reversed/70;
+}
+/* @utility gradient__card {
+  @apply bg-gradient-to-b from-background-reversed/80 from-5% via-background-reversed/70 via-20% to-background-reversed/0 to-40%;
+} */

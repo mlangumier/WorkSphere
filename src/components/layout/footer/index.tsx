@@ -26,7 +26,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-primary py-8 text-foreground-reversed">
-      <div className="container mx-auto space-y-10 max-xl:px-4">
+      <div className="container__block space-y-10">
         <div id="top" className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div id="cta" className="max-w-md space-y-6">
             <p>{content.cta.description}</p>
@@ -35,7 +35,10 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div id="identity" className="flex grow flex-col justify-end gap-5 md:flex-row md:gap-20">
+          <div
+            id="identity"
+            className="flex grow flex-row flex-wrap justify-start gap-5 gap-x-20 gap-y-5 md:flex-nowrap"
+          >
             <div id="pages" className="space-y-2">
               <h3 className="title__footer__col">{content.links.title}</h3>
               <ul className="space-y-2">
