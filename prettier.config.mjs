@@ -10,7 +10,7 @@ const prettierConfig = {
   jsxSingleQuote: false,
   quoteProps: "as-needed",
 
-  tailwindConfig: "./src/pages-public/styles.css",
+  tailwindConfig: "./src/styles/globals.css",
   tailwindFunctions: ["clsx"],
 
   plugins: ["prettier-plugin-tailwindcss"],

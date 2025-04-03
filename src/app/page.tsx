@@ -1,7 +1,5 @@
+import Homepage from '@/views/homepage';
+
 export default function Home() {
-  return (
-    <div>
-      <h1>WorkSphere</h1>
-    </div>
-  );
+  return <Homepage />;
 }
