@@ -16,8 +16,8 @@ export default function HeaderNavLink({ label, href, ...rest }: Props) {
     <Link
       href={href}
       className={cn(
-        'transition-all duration-150 ease-in-out hover:text-accent hover:underline',
-        pathname === href ? 'underline hover:text-inherit' : ''
+        'transition-all duration-150 ease-in-out hover:underline active:text-accent',
+        pathname === href ? 'underline' : ''
       )}
       {...rest}
     >

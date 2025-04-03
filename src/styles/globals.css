@@ -47,14 +47,19 @@ body {
   @apply grid min-h-svh grid-cols-1 grid-rows-[auto_1fr_auto] bg-background font-mono text-foreground;
 }
 
-h1 {
+/** --- TYPOGRAPHY --- */
+
+@utility title__main {
   @apply font-sans text-3xl font-bold uppercase;
 }
-h2 {
+@utility title__section {
   @apply font-sans text-3xl font-bold;
 }
-h3 {
+@utility title__card {
   @apply font-sans text-xl font-bold;
+}
+@utility title__footer__col {
+  @apply text-xs text-accent uppercase;
 }
 
 /** --- CUSTOM CLASSES --- */
@@ -64,5 +69,5 @@ h3 {
 }
 
 @utility cta {
-  @apply rounded-md border-2 border-background bg-background px-4 py-2 text-primary;
+  @apply rounded-sm border-2 border-white bg-white px-4 py-2 text-primary transition-all duration-150 ease-in-out hover:bg-primary hover:text-white active:bg-accent active:text-white;
 }

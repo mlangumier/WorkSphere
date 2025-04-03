@@ -25,20 +25,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-primary py-5 text-foreground-reversed">
+    <footer className="w-full bg-primary py-8 text-foreground-reversed">
       <div className="container mx-auto space-y-10 max-xl:px-4">
-        <div id="top" className="flex flex-col gap-4">
-          <div id="cta" className="space-y-4">
+        <div id="top" className="flex flex-col gap-10 md:flex-row md:justify-between">
+          <div id="cta" className="max-w-md space-y-6">
             <p>{content.cta.description}</p>
             <Link href={'/tarifs'} className="cta">
               {content.cta.btn}
             </Link>
           </div>
 
-          <div id="identity">
-            <div id="pages">
-              <h3>{content.links.title}</h3>
-              <ul>
+          <div id="identity" className="flex grow flex-col justify-end gap-5 md:flex-row md:gap-20">
+            <div id="pages" className="space-y-2">
+              <h3 className="title__footer__col">{content.links.title}</h3>
+              <ul className="space-y-2">
                 {navMenuRoutes.map((route, index) => (
                   <li key={`route-${index}`}>
                     <Link href={route.pathname}>{route.label}</Link>
@@ -46,9 +46,10 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            <div id="contacts">
-              <h3>{content.identity.title}</h3>
-              <ul>
+            <div id="contacts" className="space-y-2">
+              <h3 className="title__footer__col">{content.identity.title}</h3>
+              <ul className="space-y-2">
+                <li>{content.identity.email}</li>
                 <li>{content.identity.address.street}</li>
                 <li>{content.identity.address.city}</li>
               </ul>
