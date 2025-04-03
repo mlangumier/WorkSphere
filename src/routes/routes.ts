@@ -11,7 +11,6 @@ export interface IRoutesList {
   about: IRoute;
   services: IRoute;
   community: IRoute;
-  plans: IRoute;
 }
 
 export const routesList: IRoutesList = {
@@ -25,14 +24,10 @@ export const routesList: IRoutesList = {
   },
   services: {
     label: 'Nos services',
-    pathname: '/services',
+    pathname: '/nos-services',
   },
   community: {
     label: 'Communauté',
     pathname: '/communaute',
-  },
-  plans: {
-    label: 'Tarifs',
-    pathname: '/tarifs',
   },
 };

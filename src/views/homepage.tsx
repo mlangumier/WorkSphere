@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { imgComputerGrass, imgHeroBanner, imgOfficeCollaboration, imgOfficeLearning, imgOfficeReunion } from '@/assets';
+import SectionMain from '@/components/sections/section-main';
 import { cn } from '@/libs/tailwind';
 
 export default function Homepage() {
@@ -65,7 +66,7 @@ export default function Homepage() {
     <>
       <section
         id="hero-section"
-        className="relative container__block my-4 flex max-h-[32rem] first__section items-center justify-center overflow-clip rounded-lg gradient__section"
+        className="container__block first__section gradient__section relative my-4 flex max-h-[32rem] items-center justify-center overflow-clip rounded-lg"
       >
         <Image
           src={imgHeroBanner}
@@ -77,17 +78,12 @@ export default function Homepage() {
         <h1 className="max-w-sm text-center title__main">{content.hero.title}</h1>
       </section>
 
-      <section id="assurances-section" className="container__block space-y-8 py-10 md:py-20">
-        <h2 className="title__section">{content.assurances.title}</h2>
-
+      <SectionMain id={`assurances-section`} title={content.assurances.title}>
         <div id="cards-grid" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {content.assurances.cards.map((card, index) => (
             <article
               key={`assurance-${index}`}
-              className={cn(
-                'relative h-[24rem] overflow-clip rounded-lg p-5 text-foreground-reversed lg:h-[30rem]',
-                'bg-gradient-to-b from-background-reversed/80 from-5% via-background-reversed/70 via-20% to-background-reversed/0 to-40%'
-              )}
+              className="gradient__card relative h-[24rem] overflow-clip rounded-lg p-5 text-foreground-reversed lg:h-[30rem]"
             >
               <Image src={card.image} alt="" fill className="absolute -z-10 object-cover" />
               <div id="content" className="space-y-4">
@@ -97,7 +93,7 @@ export default function Homepage() {
             </article>
           ))}
         </div>
-      </section>
+      </SectionMain>
 
       <section id="tools-section" className="w-full bg-background-muted py-10 md:py-20">
         <div id="cards-grid" className="container__block grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">

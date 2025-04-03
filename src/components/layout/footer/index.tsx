@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { SiMinutemailer } from 'react-icons/si';
 
+import { routesList } from '@/routes/routes';
+
 import { navMenuRoutes } from '../nav-menu-routes';
 
 export default function Footer() {
@@ -30,21 +32,23 @@ export default function Footer() {
         <div id="top" className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div id="cta" className="max-w-md space-y-6">
             <p>{content.cta.description}</p>
-            <Link href={'/tarifs'} className="cta">
+            <Link href={routesList.services.pathname} className="cta">
               {content.cta.btn}
             </Link>
           </div>
 
           <div
             id="identity"
-            className="flex grow flex-row flex-wrap justify-start gap-5 gap-x-20 gap-y-5 md:flex-nowrap"
+            className="flex grow flex-row flex-wrap justify-start gap-5 gap-x-20 gap-y-5 md:flex-nowrap md:justify-end"
           >
             <div id="pages" className="space-y-2">
               <h3 className="title__footer__col">{content.links.title}</h3>
               <ul className="space-y-2">
                 {navMenuRoutes.map((route, index) => (
                   <li key={`route-${index}`}>
-                    <Link href={route.pathname}>{route.label}</Link>
+                    <Link href={route.pathname} className="hover:underline active:text-accent">
+                      {route.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
