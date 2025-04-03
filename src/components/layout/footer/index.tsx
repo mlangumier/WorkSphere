@@ -25,12 +25,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-primary py-4 text-foreground-reversed">
-      <div className="container mx-auto max-xl:px-4">
+    <footer className="w-full bg-primary py-5 text-foreground-reversed">
+      <div className="container mx-auto space-y-10 max-xl:px-4">
         <div id="top" className="flex flex-col gap-4">
-          <div id="cta">
+          <div id="cta" className="space-y-4">
             <p>{content.cta.description}</p>
-            <Link href={'/tarifs'}>{content.cta.btn}</Link>
+            <Link href={'/tarifs'} className="cta">
+              {content.cta.btn}
+            </Link>
           </div>
 
           <div id="identity">

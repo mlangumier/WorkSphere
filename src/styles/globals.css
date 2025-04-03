@@ -62,3 +62,7 @@ h3 {
 @utility first__section {
   @apply min-h-[calc(100vh-6rem)];
 }
+
+@utility cta {
+  @apply rounded-md border-2 border-background bg-background px-4 py-2 text-primary;
+}
